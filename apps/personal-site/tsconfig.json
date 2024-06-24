@@ -14,10 +14,10 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "services/*": ["../../packages/services/*"]
+      "@kapilRepo/*": ["../../*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.js", "**/*.tsx"],
   "exclude": ["node_modules"],
   "extends": "../../packages/build-config/tsconfig.json",
 }

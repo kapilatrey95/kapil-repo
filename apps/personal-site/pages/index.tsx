@@ -1,10 +1,10 @@
-import Posts from "@/components/Post";
+import Posts from "@kapilRepo/apps/personal-site/components/Post";
 
 export default function Home() {
   return (
     <>
-    <h2>Posts Data</h2>
-     <Posts/>
+      <h2>Posts Data</h2>
+      <Posts />
     </>
   );
 }

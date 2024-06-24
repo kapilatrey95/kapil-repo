@@ -1,19 +1,17 @@
-import { useQuery } from '@tanstack/react-query';
-import {fetchPosts} from '../../../packages/services/react-query/usePostsQuery'
+import { useQuery } from "@tanstack/react-query";
+import { fetchPosts } from "@kapilRepo/packages/services/react-query/usePostsQuery";
 
-const Posts = () => {
-    const {data, isLoading, error} =   useQuery({
-      queryKey: ['posts'],
-      queryFn: fetchPosts
-    });
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  if (!data) return null;
-
+export default function Posts() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["posts"],
+    queryFn: fetchPosts,
+  });
+  isLoading && <div>Loading...</div>;
+  error && <div>Error: {error.message}</div>;
+  !data && <div>No data</div>;
   return (
     <div>
-      {data.map((post: any) => (
+      {data && data.map((post: postComp) => (
         <div key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
@@ -21,6 +19,4 @@ const Posts = () => {
       ))}
     </div>
   );
-};
-
-export default Posts;
+}
